@@ -2,7 +2,7 @@ const axios = require('axios');
 
 axios({
     method: 'get',
-    url: 'https://srvservicios.asfi.gov.bo/Retencionesdev/ServicioRetencionFondos.svc?wsdl',
+    url: 'https://servicios.asfi.gob.bo/Retencionesdev/ServicioRetencionFondos.svc?wsdl',
     timeout: 5000
 })
     .then(response => {
