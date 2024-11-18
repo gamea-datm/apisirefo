@@ -15,12 +15,15 @@ async function callPing() {
         client.setSecurity(new soap.WSSecurity(securityHeader.Username, securityHeader.Password));
         */
         // Invocar la operación Ping
-        const args = {}; // Según la definición del WSDL, Ping no requiere parámetros
-        const result = await client.PingAsync(args);
+        const args = {
+            Texto: 'Texto de prueba para Ping', // Cambiar por el texto requerido
+        };
 
-        console.log('Resultado de Ping:', result);
+        // Invocar la operación Ping
+        const [result] = await client.PingAsync(args);  
+        console.log('Resultado de Ping:', result); 
     } catch (error) {
-        console.error('Error al invocar Ping:', error);
+        console.error('Error al invocar Ping:', error); 
     }
 }
 console.log("CONSUMO DE SERVICIO PING");
