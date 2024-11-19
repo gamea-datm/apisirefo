@@ -27,12 +27,14 @@ axios.post(serviceUrl, soapMessage, {
         console.log(response.data);
 
         // Analizar la respuesta SOAP
-        const parser = new xml2js.Parser({ explicitArray: false });
+        const parser = new xml2js.Parser({ explicitArray: false, tagNameProcessors: [xml2js.processors.stripPrefix] });
         const result = await parser.parseStringPromise(response.data);
 
         // Extraer datos relevantes de la respuesta
-        const responseBody = result['soap:Envelope']['soap:Body'];
-        console.log("Cuerpo de la respuesta:", responseBody);
+        const responseBody = result.Envelope.Body;
+        const pingResult = responseBody.PingResponse.PingResult;
+
+        console.log("Resultado del servicio:", pingResult);
     })
     .catch((error) => {
         console.error("Error al invocar el servicio:");
