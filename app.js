@@ -1,35 +1,40 @@
-const soap = require('soap');
+const axios = require('axios');
+const xml2js = require('xml2js');
 
-// URL del WSDL
-const wsdlUrl = 'https://srvservicios.asfi.gob.bo/RetencionesDev/ServicioRetencionFondos.svc?wsdl';
+// Definir la URL del servicio
+const serviceUrl = 'https://srvservicios.asfi.gob.bo/RetencionesDev/ServicioRetencionFondos.svc/Soap';
 
-// Crear el cliente SOAP
-soap.createClient(wsdlUrl, (err, client) => {
-    if (err) {
-        console.error('Error al cargar el WSDL:', err);
-        return;
+// Construir manualmente el mensaje SOAP
+const soapMessage = `
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="https://srvservicios.asfi.gob.bo/RetencionesDev/">
+    <soap:Body>
+        <ns:Ping>
+            <ns:InputParameter>PruebaPing</ns:InputParameter>
+        </ns:Ping>
+    </soap:Body>
+</soap:Envelope>
+`;
+
+// Realizar la solicitud POST
+axios.post(serviceUrl, soapMessage, {
+    headers: {
+        'Content-Type': 'text/xml; charset=utf-8',
+        'SOAPAction': '"https://srvservicios.asfi.gob.bo/RetencionesDev/IRetencionFondos/Ping"'
     }
+})
+    .then(async (response) => {
+        console.log("Respuesta completa del servicio:");
+        console.log(response.data);
 
-    console.log('Cliente SOAP creado con éxito.');
+        // Analizar la respuesta SOAP
+        const parser = new xml2js.Parser({ explicitArray: false });
+        const result = await parser.parseStringPromise(response.data);
 
-    // Seleccionar el endpoint adecuado (por ejemplo, ep_RetencionFondos_basicHttp)
-    const endpoint = client['RetencionFondos']['ep_RetencionFondos_basicHttp'];
-
-    // Definir los parámetros con el espacio de nombres correcto
-    const params = {
-        Ping: {
-            // Agrega los parámetros esperados por el servicio aquí.
-            InputParameter: 'PruebaPing' // Cambia según la estructura del WSDL
-        }
-    };
-
-    // Invocar la operación Ping
-    endpoint.Ping(params, (err, result) => {
-        if (err) {
-            console.error('Error al invocar la operación Ping:', err);
-            return;
-        }
-
-        console.log('Respuesta de la operación Ping:', result);
+        // Extraer datos relevantes de la respuesta
+        const responseBody = result['soap:Envelope']['soap:Body'];
+        console.log("Cuerpo de la respuesta:", responseBody);
+    })
+    .catch((error) => {
+        console.error("Error al invocar el servicio:");
+        console.error(error.response?.data || error.message);
     });
-});
