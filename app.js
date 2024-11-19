@@ -13,17 +13,7 @@ const soapMessage = `
         </tns:Ping>
     </soap:Body>
 </soap:Envelope>
-`;
-/* const soapMessage = `
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="https://srvservicios.asfi.gob.bo/RetencionesDev/">
-    <soap:Body>
-        <tns:Ping>
-            <tns:InputParameter>PruebaPing</tns:InputParameter>
-        </tns:Ping>
-    </soap:Body>
-</soap:Envelope>
-`;
- */
+`; 
 async function callSoapService() {
     try {
         // Realizar la solicitud SOAP
@@ -32,11 +22,7 @@ async function callSoapService() {
                 'Content-Type': 'text/xml; charset=utf-8',
                 'SOAPAction': '"https://srvservicios.asfi.gob.bo/RetencionesDev/IRetencionFondos/Ping"'
             }
-        });
-
-        console.log("============ Respuesta completa del servicio: ==============");
-        console.log(response);
-        console.log("==========================");
+        }); 
 
         // Analizar la respuesta SOAP
         const parser = new xml2js.Parser({ explicitArray: false, tagNameProcessors: [xml2js.processors.stripPrefix] });
