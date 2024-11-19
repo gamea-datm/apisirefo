@@ -12,17 +12,18 @@ soap.createClient(wsdlUrl, (err, client) => {
 
     console.log('Cliente SOAP creado con éxito.');
 
-    // Seleccionar el endpoint adecuado (por ejemplo, ep_RetencionFondos_basicHttp o ep_RetencionFondos_wsHttp)
+    // Seleccionar el endpoint adecuado (por ejemplo, ep_RetencionFondos_basicHttp)
     const endpoint = client['RetencionFondos']['ep_RetencionFondos_basicHttp'];
 
-    // Definir los parámetros para tns:IRetencionFondos_Ping_InputMessage
+    // Definir los parámetros con el espacio de nombres correcto
     const params = {
-        // Sustituye 'ValorEjemplo' con los datos reales que necesites enviar según el esquema del WSDL
-        // Usa las claves correctas según la definición del mensaje en el WSDL
-        InputParameter: 'PruebaPing'
+        Ping: {
+            // Agrega los parámetros esperados por el servicio aquí.
+            InputParameter: 'PruebaPing' // Cambia según la estructura del WSDL
+        }
     };
 
-    // Invocar la operación Ping con los parámetros
+    // Invocar la operación Ping
     endpoint.Ping(params, (err, result) => {
         if (err) {
             console.error('Error al invocar la operación Ping:', err);
