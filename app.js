@@ -6,6 +6,16 @@ const serviceUrl = 'https://srvservicios.asfi.gob.bo/RetencionesDev/ServicioRete
 // Construcción del mensaje SOAP adaptado al WSDL
 const soapMessage = `
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="https://srvservicios.asfi.gob.bo/RetencionesDev/">
+    <soap: Header/>    
+    <soap:Body>
+        <tns:Ping>
+            <tns:entrada>PruebaPing</tns:entrada>
+        </tns:Ping>
+    </soap:Body>
+</soap:Envelope>
+`;
+/* const soapMessage = `
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="https://srvservicios.asfi.gob.bo/RetencionesDev/">
     <soap:Body>
         <tns:Ping>
             <tns:InputParameter>PruebaPing</tns:InputParameter>
@@ -13,7 +23,7 @@ const soapMessage = `
     </soap:Body>
 </soap:Envelope>
 `;
-
+ */
 async function callSoapService() {
     try {
         // Realizar la solicitud SOAP
@@ -24,8 +34,9 @@ async function callSoapService() {
             }
         });
 
-        console.log("Respuesta completa del servicio:");
-        console.log(response.data);
+        console.log("============ Respuesta completa del servicio: ==============");
+        console.log(response);
+        console.log("==========================");
 
         // Analizar la respuesta SOAP
         const parser = new xml2js.Parser({ explicitArray: false, tagNameProcessors: [xml2js.processors.stripPrefix] });
