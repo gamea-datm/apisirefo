@@ -6,7 +6,7 @@ const serviceUrl = 'https://srvservicios.asfi.gob.bo/RetencionesDev/ServicioRete
 // Construcción del mensaje SOAP adaptado al WSDL
 const soapMessage = `
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="https://srvservicios.asfi.gob.bo/RetencionesDev/">
-    <soap: Header/>    
+    <soap:Header/>    
     <soap:Body>
         <tns:Ping>
             <tns:entrada>PruebaPing</tns:entrada>
