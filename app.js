@@ -1,30 +1,33 @@
 const soap = require('soap');
+
 const url = 'https://srvservicios.asfi.gob.bo/RetencionesDev/ServicioRetencionFondos.svc?wsdl';
 
-async function callPing() {
-    try {
-        // Crear el cliente SOAP
-        const client = await soap.createClientAsync(url);
+const options = {
+    wsdl_headers: {
+        'Content-Type': 'application/soap+xml; charset=utf-8',
+    },
+    wsdl_options: {
+        rejectUnauthorized: false, // Si es necesario omitir errores SSL
+    },
+};
 
-        // Configuración opcional del encabezado de seguridad
-        /* const securityHeader = {
-            Username: 'your_username',
-            Password: 'your_password',
-        };
-
-        client.setSecurity(new soap.WSSecurity(securityHeader.Username, securityHeader.Password));
-        */
-        // Invocar la operación Ping
-        const args = {
-            Texto: 'Texto de prueba para Ping', // Cambiar por el texto requerido
-        };
-
-        // Invocar la operación Ping
-        const [result] = await client.PingAsync(args);  
-        console.log('Resultado de Ping:', result); 
-    } catch (error) {
-        console.error('Error al invocar Ping:', error); 
+soap.createClient(url, options, function (err, client) {
+    if (err) {
+        console.error(err);
+        return;
     }
-}
-console.log("CONSUMO DE SERVICIO PING");
-callPing();
+
+    client.addHttpHeader('Content-Type', 'application/soap+xml; charset=utf-8');
+
+    const args = {
+        Texto: 'Texto de prueba para Ping',
+    };
+
+    client.Ping(args, function (err, result) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log(result);
+        }
+    });
+});
