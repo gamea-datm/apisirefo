@@ -9,7 +9,7 @@ const pingSoapMessage = `
     <soap:Header/>
     <soap:Body>
         <tns:Ping>
-            <tns:entrada>PruebaPing</tns:entrada>
+            <tns:entrada> = Prueba Ping = </tns:entrada>
         </tns:Ping>
     </soap:Body>
 </soap:Envelope>
@@ -64,8 +64,8 @@ const remitirSolicitudSoapMessage = `
                 </tns:Detalle>
             </tns:Detalles>
             <tns:Identidad>
-                <tns:Usuario>gamea.datm@gmail.com</tns:Usuario>
-                <tns:Clave>EVCdf2ZaJv#TX*x</tns:Clave>
+                <tns:Usuario>UsuarioDemo</tns:Usuario>
+                <tns:Clave>ClaveDemo</tns:Clave>
             </tns:Identidad>
         </tns:RemitirSolicitudRequest>
     </soap:Body>
