@@ -22,20 +22,20 @@ const remitirSolicitudSoapMessage = `
     <soap:Body>
         <tns:RemitirSolicitudRequest>
             <tns:Cabecera>
-                <tns:IdSolicitud>123</tns:IdSolicitud>
-                <tns:Entidad>EntidadDemo</tns:Entidad>
-                <tns:TipoProceso>ProcesoDemo</tns:TipoProceso>
-                <tns:CodigoSolicitud>ABC123</tns:CodigoSolicitud>
-                <tns:FechaEnvio>2024-11-20</tns:FechaEnvio>
-                <tns:Gerencia>GerenciaDemo</tns:Gerencia>
-                <tns:AutoridadSolicitante>AutoridadDemo</tns:AutoridadSolicitante>
-                <tns:AutoridadCargo>CargoDemo</tns:AutoridadCargo>
-                <tns:Adjunto>ArchivoBase64</tns:Adjunto>
-                <tns:AdjuntoNombre>documento.pdf</tns:AdjuntoNombre>
-                <tns:DetalleCantidad>2</tns:DetalleCantidad>
-                <tns:HashDatos>HashDemo</tns:HashDatos>
-                <tns:HashImagen>HashImagenDemo</tns:HashImagen>
-                <tns:Usuario>UsuarioDemo</tns:Usuario>
+                <xs:IdSolicitud>123</xs:IdSolicitud>
+                <xs:Entidad>EntidadDemo</xs:Entidad>
+                <xs:TipoProceso>ProcesoDemo</xs:TipoProceso>
+                <xs:CodigoSolicitud>ABC123</xs:CodigoSolicitud>
+                <xs:FechaEnvio>2024-11-20</xs:FechaEnvio>
+                <xs:Gerencia>GerenciaDemo</xs:Gerencia>
+                <xs:AutoridadSolicitante>AutoridadDemo</xs:AutoridadSolicitante>
+                <xs:AutoridadCargo>CargoDemo</xs:AutoridadCargo>
+                <xs:Adjunto>ArchivoBase64</xs:Adjunto>
+                <xs:AdjuntoNombre>documento.pdf</xs:AdjuntoNombre>
+                <xs:DetalleCantidad>1</xs:DetalleCantidad>
+                <xs:HashDatos>HashDemo</xs:HashDatos>
+                <xs:HashImagen>HashImagenDemo</xs:HashImagen>
+                <xs:Usuario>UsuarioDemo</xs:Usuario>
             </tns:Cabecera>
             <tns:Detalles>
                 <tns:Detalle>
@@ -49,19 +49,7 @@ const remitirSolicitudSoapMessage = `
                     <tns:TipoRespaldo>1</tns:TipoRespaldo>
                     <tns:DocumentoRespaldo>DocRespaldoDemo1</tns:DocumentoRespaldo>
                     <tns:HashDetalle>HashDetalleDemo1</tns:HashDetalle>
-                </tns:Detalle>
-                <tns:Detalle>
-                    <tns:Item>2</tns:Item>
-                    <tns:ApellidoPaterno>PaternoDemo2</tns:ApellidoPaterno>
-                    <tns:ApellidoMaterno>MaternoDemo2</tns:ApellidoMaterno>
-                    <tns:Nombres>NombreDemo2</tns:Nombres>
-                    <tns:DocumentoIdentidadTipo>2</tns:DocumentoIdentidadTipo>
-                    <tns:DocumentoIdentidadNumero>87654321</tns:DocumentoIdentidadNumero>
-                    <tns:MontoRetencionBs>200.75</tns:MontoRetencionBs>
-                    <tns:TipoRespaldo>2</tns:TipoRespaldo>
-                    <tns:DocumentoRespaldo>DocRespaldoDemo2</tns:DocumentoRespaldo>
-                    <tns:HashDetalle>HashDetalleDemo2</tns:HashDetalle>
-                </tns:Detalle>
+                </tns:Detalle> 
             </tns:Detalles>
             <tns:Identidad>
                 <tns:Usuario>gamea.datm@gmail.com</tns:Usuario>
