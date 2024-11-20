@@ -64,8 +64,8 @@ const remitirSolicitudSoapMessage = `
                 </tns:Detalle>
             </tns:Detalles>
             <tns:Identidad>
-                <tns:Usuario>UsuarioDemo</tns:Usuario>
-                <tns:Clave>ClaveDemo</tns:Clave>
+                <tns:Usuario>gamea.datm@gmail.com</tns:Usuario>
+                <tns:Clave>EVCdf2ZaJv#TX*x</tns:Clave>
             </tns:Identidad>
         </tns:RemitirSolicitudRequest>
     </soap:Body>
