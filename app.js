@@ -22,20 +22,20 @@ const remitirSolicitudSoapMessage = `
     <soap:Body>
         <tns:RemitirSolicitudRequest>
             <tns:Cabecera>
-                <xs:IdSolicitud>123</xs:IdSolicitud>
-                <xs:Entidad>EntidadDemo</xs:Entidad>
-                <xs:TipoProceso>ProcesoDemo</xs:TipoProceso>
-                <xs:CodigoSolicitud>ABC123</xs:CodigoSolicitud>
-                <xs:FechaEnvio>2024-11-20</xs:FechaEnvio>
-                <xs:Gerencia>GerenciaDemo</xs:Gerencia>
-                <xs:AutoridadSolicitante>AutoridadDemo</xs:AutoridadSolicitante>
-                <xs:AutoridadCargo>CargoDemo</xs:AutoridadCargo>
-                <xs:Adjunto>ArchivoBase64</xs:Adjunto>
-                <xs:AdjuntoNombre>documento.pdf</xs:AdjuntoNombre>
-                <xs:DetalleCantidad>1</xs:DetalleCantidad>
-                <xs:HashDatos>HashDemo</xs:HashDatos>
-                <xs:HashImagen>HashImagenDemo</xs:HashImagen>
-                <xs:Usuario>UsuarioDemo</xs:Usuario>
+                <tns:IdSolicitud>123</tns:IdSolicitud>
+                <tns:Entidad>EntidadDemo</tns:Entidad>
+                <tns:TipoProceso>ProcesoDemo</tns:TipoProceso>
+                <tns:CodigoSolicitud>ABC123</tns:CodigoSolicitud>
+                <tns:FechaEnvio>2024-11-20</tns:FechaEnvio>
+                <tns:Gerencia>GerenciaDemo</tns:Gerencia>
+                <tns:AutoridadSolicitante>AutoridadDemo</tns:AutoridadSolicitante>
+                <tns:AutoridadCargo>CargoDemo</tns:AutoridadCargo>
+                <tns:Adjunto>ArchivoBase64</tns:Adjunto>
+                <tns:AdjuntoNombre>documento.pdf</tns:AdjuntoNombre>
+                <tns:DetalleCantidad>1</tns:DetalleCantidad>
+                <tns:HashDatos>HashDemo</tns:HashDatos>
+                <tns:HashImagen>HashImagenDemo</tns:HashImagen>
+                <tns:Usuario>UsuarioDemo</tns:Usuario>
             </tns:Cabecera>
             <tns:Detalles>
                 <tns:Detalle>
